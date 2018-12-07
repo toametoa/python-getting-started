@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- <div class="jumbotron text-center"> -->
+ <div class="col-md-4 col-md-offset-4"> 
+  <form method="POST">
+{% csrf_token %}
+<legend "mb4">Webmail SMTP Address:</legend>
+<input type="text" name="smtp_input">
+<legend "mb4">IMAP Address:</legend>
+<input type="text" name="imap_input">
+<legend "mb4">Port:</legend>
+<input type="text" name="port_input">
+<legend "mb4">Webmail Email Address:</legend>
+<input type="text" name="emaill_input">
+<legend "mb4">Webmail Password:</legend>
+<input type="text" name="pass_input">
+<legend "mb4">Conversation Delay Time(minutes)</legend>
+<input type="text" name="delay_input">
+<legend "mb4">No Response Delay Time</legend>
+<input type="text" name="nrdelay_input">
+<br><br>
+<button type="submit">Set Data</button>
+</form>
+<br>
+<br>
+  <h1>
+    users cofigratns:   {{ uconfig }}
+  </h1>
+ </div> 
+<!-- </div> -->
+
+{% endblock %}

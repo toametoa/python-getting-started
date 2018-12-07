@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- <div class="jumbotron text-center"> -->
+  <h1>
+     username {{ user.username }}
+  </h1>
+   <h1>
+     profile {{ user }}
+  </h1>
+  <h1>
+    city:   {{ city }}
+  </h1>
+  <h1>
+    desc:   {{ desc }}
+  </h1>
+  <div class="col-md-6 col-md-offset-3">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend "border-bottom mb4">
+        Update Your Settings
+         </legend>
+          {{ puform|crispy }}
+          {{ uuform|crispy }}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-default btn-block active" type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+<!-- </div> -->
+
+{% endblock %}

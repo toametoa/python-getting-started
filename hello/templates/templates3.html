@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+  <!-- </div> -->
+<div class="row col-md-offset-1">
+  <div class="col-md-8 ">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend "border-bottom mb4">
+        Update Your Settings
+         </legend>
+          {{ t3uform|crispy }}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-default btn-block active" type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-3">
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="{% url 'templates1' %}"><span class="glyphicon glyphicon-send"></span> Autoresponse Templates (pack-1)</a></li>
+      <li><a href="{% url 'templates2' %}"><span class="glyphicon glyphicon-send"></span> Autoresponse Templates (pack-2)</a></li>
+      <li class="divider"></li>
+      <li class="active"><a href="{% url 'templates3' %}"><span class="glyphicon glyphicon-send"></span> No response Templates</a></li>
+      <li><a href="{% url 'templates2' %}">Follow-Up Mails</a></li>
+      <li><a href="{% url 'templates2' %}">Mail Delay-Time Settings</a></li>
+    </ul>
+  </div>
+</div> 
+{% endblock %}
